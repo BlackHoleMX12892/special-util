@@ -2,8 +2,6 @@
 
 #include <Geode/Geode.hpp>
 
-cocos2d::CCNode* SuData::creator_buttons_menu {nullptr};
-
 std::vector<cocos2d::CCNode*> SuData::buttonlist {nullptr};
 
 void SuData::handle() {

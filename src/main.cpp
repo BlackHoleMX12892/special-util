@@ -27,8 +27,10 @@ struct SuCreatorLayer : Modify<SuCreatorLayer, CreatorLayer> {
             su_menu->updateLayout();
 
             auto creator_buttons_menu = this->getChildByID("creator-buttons-menu");
-            SuData::creator_buttons_menu = creator_buttons_menu;
-            SuData::handle();
+
+            SuData su_data;
+            su_data.creator_buttons_menu = creator_buttons_menu;
+            su_data.handle();
 
 
             for (size_t i = 0; i < SuData::buttonlist.size(); i++)
