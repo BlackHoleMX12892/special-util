@@ -33,13 +33,13 @@ struct SuCreatorLayer : Modify<SuCreatorLayer, CreatorLayer> {
             su_data.handle();
 
 
-            for (size_t i = 0; i < SuData::buttonlist.size(); i++)
+            for (size_t i = 0; i < su_data.buttonlist.size(); i++)
             {
-                SuData::buttonlist[i]->retain();
-                SuData::buttonlist[i]->removeFromParent();
-                creator_buttons_menu->addChild(SuData::buttonlist[i]);
-                SuData::buttonlist[i]->release();
-                log::debug("Adding: {}", SuData::buttonlist[i]);
+                su_data.buttonlist[i]->retain();
+                su_data.buttonlist[i]->removeFromParent();
+                creator_buttons_menu->addChild(su_data.buttonlist[i]);
+                su_data.buttonlist[i]->release();
+                log::debug("Adding: {}", su_data.buttonlist[i]);
             }
 
             creator_buttons_menu->updateLayout();

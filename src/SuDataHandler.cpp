@@ -2,8 +2,6 @@
 
 #include <Geode/Geode.hpp>
 
-std::vector<cocos2d::CCNode*> SuData::buttonlist {nullptr};
-
 void SuData::handle() {
     SuData::buttonlist = {
         SuData::creator_buttons_menu->getChildByID("featured-button"),

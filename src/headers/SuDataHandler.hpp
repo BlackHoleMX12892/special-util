@@ -5,7 +5,7 @@
 struct SuData {
     cocos2d::CCNode* creator_buttons_menu {nullptr};
 
-    static std::vector<cocos2d::CCNode*> buttonlist;
+    std::vector<cocos2d::CCNode*> buttonlist {nullptr};
 
     void handle();
 };
