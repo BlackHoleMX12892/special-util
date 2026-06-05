@@ -28,6 +28,7 @@ struct SuCreatorLayer : Modify<SuCreatorLayer, CreatorLayer> {
 
             auto creator_buttons_menu = this->getChildByID("creator-buttons-menu");
 
+
             SuData su_data;
             su_data.creator_buttons_menu = creator_buttons_menu;
             su_data.handle();
@@ -39,7 +40,7 @@ struct SuCreatorLayer : Modify<SuCreatorLayer, CreatorLayer> {
                 su_data.buttonlist[i]->removeFromParent();
                 creator_buttons_menu->addChild(su_data.buttonlist[i]);
                 su_data.buttonlist[i]->release();
-                log::debug("Adding: {}", su_data.buttonlist[i]);
+                // log::debug("Adding: {}", su_data.buttonlist[i]);
             }
 
             creator_buttons_menu->updateLayout();
