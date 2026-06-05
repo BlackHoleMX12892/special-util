@@ -4,6 +4,13 @@
 
 class SuPopup : public geode::Popup {
 protected:
+    // Declare temporal layouts, eevntually would add user customization.
+
+    void layout1(CCObject* sender);
+    void layout2(CCObject* sender);
+    void layout3(CCObject* sender);
+    void layout4(CCObject* sender);
+
     // declare init
     void apply(CCObject* sender);
     bool init();
