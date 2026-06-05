@@ -25,6 +25,7 @@ void SuPopup::layout4(CCObject* sender) {
 void SuPopup::apply(CCObject* sender) {
     SuData su_data;
     su_data.saveToStorage(items);
+    FLAlertLayer::create("Succesfully applied", "The layout has been applied correctly.", "Ok")->show();
     // log::debug("data saved", items);
 }
 
