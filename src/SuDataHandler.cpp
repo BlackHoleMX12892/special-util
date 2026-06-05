@@ -4,7 +4,7 @@
 
 using namespace geode::prelude;
 
-void SuData::handle() {
+void SuData::getStorage() {
     SuData::buttonlist = {
         SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("11")),
         SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("12")),

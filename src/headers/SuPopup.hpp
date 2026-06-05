@@ -5,6 +5,7 @@
 class SuPopup : public geode::Popup {
 protected:
     // declare init
+    void apply(CCObject* sender);
     bool init();
 
 public:

@@ -1,7 +1,16 @@
 #include <Geode/Geode.hpp>
 #include "headers/SuPopup.hpp"
+#include "headers/SuDataHandler.hpp"
 
 using namespace geode::prelude;
+
+void SuPopup::apply(CCObject* sender) {
+    // std::vector<std::string> items = {"search-button", "saved-button", "create-button", "scores-button", "quests-button", "versus-button", "map-button", "event-button", "weekly-button", "daily-button", "gauntlets-button", "lists-button", "paths-button", "map-packs-button", "featured-button"};
+    std::vector<std::string> items = {"search-button", "saved-button", "scores-button", "create-button", "quests-button", "versus-button", "map-button", "event-button", "weekly-button", "daily-button", "gauntlets-button", "lists-button", "paths-button", "map-packs-button", "featured-button"};
+    SuData su_data;
+    su_data.saveToStorage(items);
+    // log::debug("data saved", items);
+}
 
 bool SuPopup::init() {
     if (!Popup::init(280.f, 200.f)) {
@@ -35,7 +44,7 @@ bool SuPopup::init() {
         m_mainLayer->addChildAtPosition(su_popup_menu, Anchor::Center);
 
         auto apply_btn = CCMenuItemSpriteExtra::create(
-            ButtonSprite::create("Apply"), this, nullptr
+            ButtonSprite::create("Apply"), this, menu_selector(SuPopup::apply)
         );
 
         m_buttonMenu->addChild(apply_btn);

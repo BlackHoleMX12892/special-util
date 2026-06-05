@@ -31,7 +31,7 @@ struct SuCreatorLayer : Modify<SuCreatorLayer, CreatorLayer> {
 
             SuData su_data;
             su_data.creator_buttons_menu = creator_buttons_menu;
-            su_data.handle();
+            su_data.getStorage();
 
 
             for (size_t i = 0; i < su_data.buttonlist.size(); i++)
