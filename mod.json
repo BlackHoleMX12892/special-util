@@ -7,10 +7,10 @@
 		"ios": "2.2081"
 	},
 	"id": "blackholemx.specialutil",
-	"name": "specialutil",
-	"version": "v1.0.0",
+	"name": "Custom Menu Util",
+	"version": "v1.0.0-alpha.1",
 	"developer": "BlackHoleMX",
-	"description": "",
+	"description": "Allows the user to customize the order of the butons on the CreatorLayer.",
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
 	}
