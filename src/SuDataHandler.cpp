@@ -1,27 +1,22 @@
 #include "headers/SuDataHandler.hpp"
 
 #include <Geode/Geode.hpp>
+#include <string>
 
 using namespace geode::prelude;
 
-void SuData::getStorage() {
-    SuData::buttonlist = {
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("11")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("12")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("13")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("14")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("15")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("6")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("7")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("8")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("9")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("10")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("1")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("2")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("3")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("4")),
-        SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>("5"))
-    };
+bool SuData::getStorage() {
+    for (size_t i = 0; i < SuData::buttonlist.size(); i++)
+    {
+        std::string element = std::to_string(i + 1);
+        if (!Mod::get()->getSavedValue<std::string>(element).empty())
+        {
+            SuData::buttonlist[i] = SuData::creator_buttons_menu->getChildByID(Mod::get()->getSavedValue<std::string>(element));
+        } else {
+            return false;
+        }
+    }
+    return true;
     // geode::log::debug("Here you have it, hope it works {}", SuData::buttonlist[2]);
 }
 

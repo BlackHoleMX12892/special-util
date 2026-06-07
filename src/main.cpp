@@ -31,19 +31,19 @@ struct SuCreatorLayer : Modify<SuCreatorLayer, CreatorLayer> {
 
             SuData su_data;
             su_data.creator_buttons_menu = creator_buttons_menu;
-            su_data.getStorage();
+            auto isStorageValid = su_data.getStorage();
 
+            if (isStorageValid == true) {
+                for (size_t i = 0; i < su_data.buttonlist.size(); i++) {
+                    su_data.buttonlist[i]->retain();
+                    su_data.buttonlist[i]->removeFromParent();
+                    creator_buttons_menu->addChild(su_data.buttonlist[i]);
+                    su_data.buttonlist[i]->release();
+                    // log::debug("Adding: {}", su_data.buttonlist[i]);
+                }
 
-            for (size_t i = 0; i < su_data.buttonlist.size(); i++)
-            {
-                su_data.buttonlist[i]->retain();
-                su_data.buttonlist[i]->removeFromParent();
-                creator_buttons_menu->addChild(su_data.buttonlist[i]);
-                su_data.buttonlist[i]->release();
-                // log::debug("Adding: {}", su_data.buttonlist[i]);
+                creator_buttons_menu->updateLayout();
             }
-
-            creator_buttons_menu->updateLayout();
 
             return true;
         }

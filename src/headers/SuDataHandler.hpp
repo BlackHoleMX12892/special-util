@@ -7,7 +7,7 @@ struct SuData {
 
     std::vector<cocos2d::CCNode*> buttonlist {nullptr};
 
-    void getStorage();
+    bool getStorage();
     
     void saveToStorage(std::vector<std::string> order);
 
