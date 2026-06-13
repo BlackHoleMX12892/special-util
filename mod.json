@@ -8,7 +8,7 @@
 	},
 	"id": "blackholemx.specialutil",
 	"name": "Custom Menu Util",
-	"version": "v1.0.0-alpha.1",
+	"version": "v1.0.0-alpha.2",
 	"developer": "BlackHoleMX",
 	"description": "Allows the user to customize the order of the butons on the CreatorLayer.",
 	"dependencies": {
