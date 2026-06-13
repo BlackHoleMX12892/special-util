@@ -7,7 +7,7 @@ using namespace geode::prelude;
 std::vector<std::string> items;
 
 void SuPopup::layout1(CCObject* sender) {
-    items = {"search-button", "saved-button", "scores-button", "create-button", "quests-button", "versus-button", "map-button", "event-button", "weekly-button", "daily-button", "gauntlets-button", "lists-button", "paths-button", "map-packs-button", "featured-button"};
+    items = {"create-button", "saved-button", "scores-button", "quests-button", "versus-button", "map-button", "daily-button", "weekly-button", "event-button", "gauntlets-button", "featured-button", "lists-button", "paths-button", "map-packs-button", "search-button"};
 }
 
 void SuPopup::layout2(CCObject* sender) {
@@ -15,7 +15,7 @@ void SuPopup::layout2(CCObject* sender) {
 }
 
 void SuPopup::layout3(CCObject* sender) {
-    items = {"search-button", "saved-button", "paths-button", "map-packs-button", "featured-button", "create-button", "scores-button", "quests-button", "versus-button", "map-button", "event-button", "weekly-button", "daily-button", "gauntlets-button", "lists-button",};
+    items = {"search-button", "saved-button", "paths-button", "map-packs-button", "featured-button", "create-button", "scores-button", "quests-button", "versus-button", "map-button", "event-button", "weekly-button", "daily-button", "gauntlets-button", "lists-button"};
 }
 
 void SuPopup::layout4(CCObject* sender) {
@@ -24,9 +24,12 @@ void SuPopup::layout4(CCObject* sender) {
 
 void SuPopup::apply(CCObject* sender) {
     SuData su_data;
-    su_data.saveToStorage(items);
-    FLAlertLayer::create("Succesfully applied", "The layout has been applied correctly.", "Ok")->show();
-    // log::debug("data saved", items);
+    if (items.empty() == false) {
+        su_data.saveToStorage(items);
+        FLAlertLayer::create("Succesfully applied", "The layout has been applied correctly.", "Ok")->show();
+    }
+    // log::debug("data saved", items[0]);
+    // items.clear();
 }
 
 bool SuPopup::init() {
@@ -39,7 +42,7 @@ bool SuPopup::init() {
         su_popup_menu->setLayout(RowLayout::create());
 
         auto l1_btn = CCMenuItemSpriteExtra::create(
-            ButtonSprite::create("l1"), this, menu_selector(SuPopup::layout1)
+            ButtonSprite::create("Default"), this, menu_selector(SuPopup::layout1)
         );
 
         auto l2_btn = CCMenuItemSpriteExtra::create(
